@@ -1,0 +1,10 @@
+unknown
+endothelial
+stellate
+immune
+gamma
+ductal
+alpha
+beta
+acinar
+delta
