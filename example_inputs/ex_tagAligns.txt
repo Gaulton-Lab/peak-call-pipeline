@@ -1,0 +1,10 @@
+/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/split.unknown.subsample.tagAlign
+/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/split.endothelial.subsample.tagAlign
+/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/split.stellate.subsample.tagAlign
+/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/split.immune.subsample.tagAlign
+/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/split.gamma.subsample.tagAlign
+/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/split.ductal.subsample.tagAlign
+/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/split.alpha.subsample.tagAlign
+/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/split.beta.subsample.tagAlign
+/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/split.acinar.subsample.tagAlign
+/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/split.delta.subsample.tagAlign
