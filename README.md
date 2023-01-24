@@ -36,8 +36,8 @@ This repository contains scripts and sample files designed to call peaks on mult
 
 ## Step 7 - Activating conda Environment
 - To get all the packages needed to run the call peaks script, you must run it in the correct conda environment
-    - Clone the conda environment using this command: `conda create --name {env_name} --clone /home/kakorgao/.conda/envs/kat_py_37/`
-    - Once cloned, run this command: `conda activate /path/to/env/copy/`
+    - Create a new conda env from .yml file using cmd: `conda env create -f call_peaks_environment.yml`
+    - Once created, run this command: `conda activate call_peaks`
 ## Step 8 - Running the Call Peaks Script
 - [Call_peaks script](https://github.com/Gaulton-Lab/peak-call-pipeline/blob/main/scripts/call_peaks_parallel_v2.sh): `call_peaks_parallel_v2.sh`
     - Inputs: -c `cells.txt`, -t `tagAligns.txt`,  -b `barcodes.txt`, -o `/path/to/output/directory/`
