@@ -1,12 +1,12 @@
 # Call Peaks Pipeline
-This directory contains scripts and sample files designed to call peaks on multiomics seurat clustering outputs. Scripts and README.md were initially designed by Katha Korgaonkar, and recently adapted by Hannah Mummey. 
+This repository contains scripts and sample files designed to call peaks on multiomics seurat clustering outputs. Scripts and README.md were initially designed by Katha Korgaonkar, and recently adapted by Hannah Mummey. 
 ## Step 1 - Make TagAligns for each sample
-- [Make tagAligns script](https://github.com/Gaulton-Lab/internal-tutorials/blob/main/call_peaks_snATAC/make_tagAligns.py): `make_tagAligns.py`
+- [Make tagAligns script](https://github.com/Gaulton-Lab/peak-call-pipeline/blob/main/scripts/make_tagAligns.py): `make_tagAligns.py`
     - Inputs: 
     - Outputs: .tagAlign.gz for each sample
 
 ## Step 2 - Merge Sample TagAligns into one file
-- [Merge tagAligns script](https://github.com/Gaulton-Lab/internal-tutorials/blob/main/call_peaks_snATAC/merge_tagAligns.R): `merge_tagAligns.R`
+- [Merge tagAligns script](https://github.com/Gaulton-Lab/peak-call-pipeline/blob/main/scripts/merge_tagAligns.R): `merge_tagAligns.R`
     - Inputs: list of samples and the location of their tagAligns
     - Outputs: merged .tagAlign.gz file
 
@@ -16,7 +16,7 @@ This directory contains scripts and sample files designed to call peaks on multi
 - Pull out the barcodes for each cell type / leiden value into a \n delimted .txt file. You should have the same amount of .txt files as you do cell types/ leiden values.
 
 ## Step 4 - Split merged tagAlign file by cell type/leiden
-- [Split tagAlign script](https://github.com/Gaulton-Lab/internal-tutorials/blob/main/call_peaks_snATAC/splitTagAlign_parallelized.sh): `splitTagAlign_parallelized.sh`
+- [Split tagAlign script](https://github.com/Gaulton-Lab/peak-call-pipeline/blob/main/scripts/splitTagAlign_parallelized.sh): `splitTagAlign_parallelized.sh`
     - Inputs: -c `cells.txt`, -t `tagAlign.tsv.gz`,  -b `barcodes.txt`, -o `/path/to/output/directory/`
         - `cells.txt` is a \n delimited .txt file with the names of all cell types you are calling peaks on 
 		- `tagAlign.tsv.gz` is the output from step 2 
@@ -39,7 +39,7 @@ This directory contains scripts and sample files designed to call peaks on multi
     - Clone the conda environment using this command: `conda create --name {env_name} --clone /home/kakorgao/.conda/envs/kat_py_37/`
     - Once cloned, run this command: `conda activate /path/to/env/copy/`
 ## Step 8 - Running the Call Peaks Script
-- [Call_peaks script](https://github.com/Gaulton-Lab/internal-tutorials/blob/main/call_peaks_snATAC/call_peaks_parallel_v2.sh): `call_peaks_parallel_v2.sh`
+- [Call_peaks script](https://github.com/Gaulton-Lab/peak-call-pipeline/blob/main/scripts/call_peaks_parallel_v2.sh): `call_peaks_parallel_v2.sh`
     - Inputs: -c `cells.txt`, -t `tagAligns.txt`,  -b `barcodes.txt`, -o `/path/to/output/directory/`
         - `cells.txt` is a \n delimited .txt file with the names of all cell types you are calling peaks on 
 		- `tagAlign.txt` is a \n delimited .txt file with the paths to un-gzipped split tagAligns 
@@ -49,6 +49,6 @@ This directory contains scripts and sample files designed to call peaks on multi
 
  - **SAMPLE COMMAND**: `bash call_peaks_parallel_v2.sh -c cell.txt -t /nfs/lab/katha/multiomics/scripts/cleaned_again/tag_list.txt -b barcodes.txt -o /path/to/outputs/`
 ## Step 8 - Merge Peak Files
-- [Merge peaks script](https://github.com/Gaulton-Lab/internal-tutorials/blob/main/call_peaks_snATAC/mergePeaks.sh): `mergePeaks.sh`
+- [Merge peaks script](https://github.com/Gaulton-Lab/peak-call-pipeline/blob/main/scripts/mergePeaks.sh): `mergePeaks.sh`
     - **NOTE:** this script is hard coded - so be sure to adapt it to your needs
 
