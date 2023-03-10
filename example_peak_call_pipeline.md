@@ -24,10 +24,9 @@
 2. Merge the TagAligns into one file
     1. Modify the `merge_tagAligns.R` script in a few places: samples list, general path to `atac_keep_reads.tagAlign.gz`, and output path it writes to
 3. Make barcode files for each celltype/leiden (needs to be a \n delimited .txt file)
-    1. Doing this in a notebook: `/nfs/lab/hmummey/multiomic_islet/notebooks/221120_FINAL_combined_clustering_characterization_v2`
-    2. Files here: `/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/recluster_filtered_majorCTs_v2`
-    3. Also make a file with the filepaths to each barcodes files on separate lines
-4. Split merged tagAlign file by cell type (started at 1:21pm checked back at 4:46pm and still wasn’t done running… normally this only takes a few hours so a bit concerning but it looked like a lot of process were D in glances for a while, was done by the time I checked again at 7:43pm, and log said it was done at 7:31pm)
+    1. Doing this in a notebook: `/nfs/lab/hmummey/multiomic_islet/notebooks/221120_FINAL_combined_clustering_characterization_v2`. Basically uses the metadata of a Seurat object to write files of all barcodes per cell type. 
+    2. Also make a file with the filepaths to each barcodes files on separate lines
+4. Split merged tagAlign file by cell type (normally this only takes a few hours, but this time I started it at 1:21pm, then checked back at 4:46pm and it still wasn’t done running… eventually log said it was done at 7:31pm, this was a day with lots of high CPU processes on the server so was likely slower as a result.)
     1. Script: `/nfs/lab/katha/multiomics/islet-multiome-processing/call_peaks/splitTagAlign_parallelized.sh`
     2. Inputs:
         1. -c (file with all cell types in order)
@@ -102,7 +101,7 @@ done
 7. Activate the conda environment (clone the environ from katha’s dir)
     1. `conda create --name call_peaks --clone /home/kakorgao/.conda/envs/kat_py_37/` 
     2. In screen: `conda activate /home/hmummey/.conda/envs/call_peaks`
-    3. Alternative option: create the environment from `call_peaks.yml` (file hasn’t been made yet, in progress; basically this environment just has `macs2 v2.2.7.1` and some other packages that I’m not sure are necessary)
+    3. Alternative option: create the environment from `call_peaks.yml` (basically this environment just has `macs2 v2.2.7.1` and some other packages that I’m not sure are necessary)
 8. Run the call peaks script!
     1. Inputs:
         1. -c (file with all cell types in order)
@@ -113,14 +112,6 @@ done
     
     ```bash
     screen -r peak_calling
-    cd /nfs/lab/katha/multiomics/islet-multiome-processing/call_peaks
-    cells_fp=/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/recluster_final_majorCTs_v2/celltypes.txt
-    split_tagAlign_fp=/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/recluster_final_majorCTs_v2/split.subsample.tagAligns_byCT.txt
-    ct_barcodes_fp=/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/recluster_final_majorCTs_v2/barcodes_byCT.txt
-    
-    bash call_peaks_parallel.sh -c $cells_fp -t $split_tagAlign_fp -b $ct_barcodes_fp -o /nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/recluster_final_majorCTs_v2/
-    
-    #this isn't the remade peak calling script (not sure where the code for that is ugh)! gonna rerun that to be safe (files should all be overwritten and then some will also be deleted at the end)
     cd /nfs/lab/projects/multiomic_islet/code/peak_calling
     cells_fp=/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/recluster_final_majorCTs_v2/celltypes.txt
     split_tagAlign_fp=/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/recluster_final_majorCTs_v2/split.subsample.tagAligns_byCT.txt
