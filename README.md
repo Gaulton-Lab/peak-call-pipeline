@@ -48,7 +48,7 @@ This repository contains scripts and sample files designed to call peaks on mult
 	- **NOTE:** gzipped versions of the splitTagAligns must be in the same directory as the unzipped ones
 
  - **SAMPLE COMMAND**: `bash call_peaks_parallel_v2.sh -c cell.txt -t /nfs/lab/katha/multiomics/scripts/cleaned_again/tag_list.txt -b barcodes.txt -o /path/to/outputs/`
-## Step 8 - Merge Peak Files
+## Step 9 - Merge Peak Files
 - [Merge peaks script](https://github.com/Gaulton-Lab/peak-call-pipeline/blob/main/scripts/mergePeaks.sh): `mergePeaks.sh`
     - **NOTE:** this script is hard coded - so be sure to adapt it to your needs
 
