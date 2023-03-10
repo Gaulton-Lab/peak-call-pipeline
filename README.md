@@ -52,3 +52,6 @@ This repository contains scripts and sample files designed to call peaks on mult
 - [Merge peaks script](https://github.com/Gaulton-Lab/peak-call-pipeline/blob/main/scripts/mergePeaks.sh): `mergePeaks.sh`
     - **NOTE:** this script is hard coded - so be sure to adapt it to your needs
 
+## Step 10 - Overlap cell type peak sets with merged peak set
+
+Use bedtools intersect `-wa -a mergedPeak.txt -b celltype peaks` to get files of merged peaks found in each cell type. 
