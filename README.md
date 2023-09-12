@@ -47,7 +47,7 @@ This repository contains scripts and sample files designed to call peaks on mult
 		- `genome.chrom.sizes` is a \t delimited file with the length (in base pairs) of each chromosome in your genome build (including all random contigs)
 	- **NOTE:** for the -t and -b .txt files, the paths should be in the same order as the cell/leiden in the -c .txt file
 	- **NOTE:** gzipped versions of the splitTagAligns must be in the same directory as the unzipped ones
- - **SAMPLE COMMAND**: `bash call_peaks_parallel_v2.sh -c cell.txt -t /nfs/lab/katha/multiomics/scripts/cleaned_again/tag_list.txt -b barcodes.txt -o /path/to/outputs/` -g `genome.chrom.sizes`
+ - **SAMPLE COMMAND**: `bash call_peaks_parallel_v2.sh -c cell.txt -t /nfs/lab/katha/multiomics/scripts/cleaned_again/tag_list.txt -b barcodes.txt -o /path/to/outputs/ -g genome.chrom.sizes`
 ## Step 9 - Merge Peak Files
 - [Merge peaks script](https://github.com/Gaulton-Lab/peak-call-pipeline/blob/main/scripts/mergePeaks.sh): `mergePeaks.sh`
     - **NOTE:** this script is hard coded - so be sure to adapt it to your needs
