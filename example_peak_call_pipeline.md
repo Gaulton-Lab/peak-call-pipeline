@@ -109,6 +109,7 @@ done
         2. -t (un-gzipped split tagAligns from step 5, same order as -c)
         3. -b (paths to all cell type specific barcodes files, same order as -c)
         4. -o output dir
+	5. -g genome sizes file
     2. Command
     
     ```bash
@@ -117,8 +118,9 @@ done
     cells_fp=/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/recluster_final_majorCTs_v2/celltypes.txt
     split_tagAlign_fp=/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/recluster_final_majorCTs_v2/split.subsample.tagAligns_byCT.txt
     ct_barcodes_fp=/nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/recluster_final_majorCTs_v2/barcodes_byCT.txt
+    GSIZE_FILE=/nfs/lab/elisha/nPOD_output/scripts/references/hg38.chrom.sizes
     
-    bash call_peaks_parallel.sh -c $cells_fp -t $split_tagAlign_fp -b $ct_barcodes_fp -o /nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/recluster_final_majorCTs_v2/
+    bash call_peaks_parallel.sh -c $cells_fp -t $split_tagAlign_fp -b $ct_barcodes_fp -o /nfs/lab/projects/multiomic_islet/outputs/multiome/call_peaks/recluster_final_majorCTs_v2/ -g $GSIZE_FILE
     
     #this isn't the remade peak calling script (not sure where the code for that is ugh)! gonna rerun that to be safe (files should all be overwritten and then some will also be deleted at the end)
     cd /nfs/lab/projects/multiomic_islet/code/peak_calling
