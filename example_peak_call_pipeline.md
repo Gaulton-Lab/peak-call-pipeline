@@ -108,7 +108,7 @@ done
         2. -t (un-gzipped split tagAligns from step 5, same order as -c)
         3. -b (paths to all cell type specific barcodes files, same order as -c)
         4. -o output dir
-	5. -g genome sizes file
+        5. -g genome sizes file
     2. Command
     
     ```bash
