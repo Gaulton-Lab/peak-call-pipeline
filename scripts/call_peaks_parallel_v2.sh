@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-while getopts c:t:b:o: flag
+while getopts c:t:b:o:g: flag
 do
     case "${flag}" in
         c) cells_temp=${OPTARG};;
         t) splitTag_temp=${OPTARG};;
         b) barcodes_temp=${OPTARG};;
         o) peakCallDir=${OPTARG};;
+	g) GSIZE_FILE=${OPTARG};;
     esac
 done
 
@@ -92,7 +93,6 @@ for (( i=0; i<${num_of_cells}; i++ )); do
     echo "${cell} total reads = ${size}      $dt"  >> $log_file
     echo "${cell} scale factor = ${SCALE_FACTOR}      $dt"  >> $log_file
 
-    GSIZE_FILE="/nfs/lab/elisha/nPOD_output/scripts/references/hg38.chrom.sizes"
     bdgFile="${peakCallDir}${cell}.scale_1e6.bdg"
 
     dt=$(date '+%d/%m/%Y %H:%M:%S');
