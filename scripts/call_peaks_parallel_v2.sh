@@ -30,7 +30,7 @@ num_of_cells=${#cells[@]}
 echo "number of cell types is $num_of_cells"
 
 #make dir for log files
-log_dir=${peakCallDir}"/log_files"
+log_dir=${peakCallDir}"log_files"
 mkdir $log_dir
 
 for (( i=0; i<${num_of_cells}; i++ )); do
