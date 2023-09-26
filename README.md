@@ -48,6 +48,7 @@ This repository contains scripts and sample files designed to call peaks on mult
 	- **NOTE:** for the -t and -b .txt files, the paths should be in the same order as the cell/leiden in the -c .txt file
 	- **NOTE:** gzipped versions of the splitTagAligns must be in the same directory as the unzipped ones
  - **SAMPLE COMMAND**: `bash call_peaks_parallel_v2.sh -c cell.txt -t /nfs/lab/katha/multiomics/scripts/cleaned_again/tag_list.txt -b barcodes.txt -o /path/to/outputs/ -g genome.chrom.sizes`
+
 **Important note:** the pipeline has a few variables hard coded for human. If you are calling peaks on mouse data, please use the `call_peaks_parallel_v2_mouse.sh` script. If you are calling peaks on another, non-human, organism, you'll need to manually update the `-g` input for macs2.
 ## Step 9 - Merge Peak Files
 - [Merge peaks script](https://github.com/Gaulton-Lab/peak-call-pipeline/blob/main/scripts/mergePeaks.sh): `mergePeaks.sh`
